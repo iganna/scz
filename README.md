@@ -12,6 +12,11 @@ To run the pipeline, one can use two options:
 
 The table with gene expression data is in `dExpr.R`
 
+## Requirements
+
+R package `lavaan`
+R package `DiagrammeR`, **version 8.2**. The folder with this version is cloned to the current repository.
+
 ## References
 
 Anna. A. Igolkina , Chris Armoskus, Jeremy. R. B. Newman, Oleg. V. Evgrafov, 
