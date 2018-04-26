@@ -8,11 +8,14 @@ To run the pipeline, one can use two options:
 * Jupyter notebook `pipeline.ipynb`
 * R script `pipeline.R`
 
+## Data
+
+The table with gene expression data is in `dExpr.R`
 
 ## References
 
 Anna. A. Igolkina , Chris Armoskus, Jeremy. R. B. Newman, Oleg. V. Evgrafov, 
-Lauren. M. McIntyre, Sergey. V. Nuzhdin, Maria. G. Samsonova, * Analysis of gene expression variance in schizophrenia using structural equation modeling* , 2018, Frontiers in Molecular Neuroscience.
+Lauren. M. McIntyre, Sergey. V. Nuzhdin, Maria. G. Samsonova, *Analysis of gene expression variance in schizophrenia using structural equation modeling* , 2018, Frontiers in Molecular Neuroscience.
 
 
 ## Authors
