@@ -391,7 +391,7 @@ get_best_mod <-function(est, path_mod)
   
   # Models with many non-significant interactions
   min(est$pvals_c[idx_failed])
-  idx_signif = as.numeric(est$pvals_c) <= 6
+  idx_signif = as.numeric(est$pvals_c) <= max(4, min(as.numeric(est$pvals_c[idx_failed])))
   
   
   idx = 1:length(path_mod$group)
