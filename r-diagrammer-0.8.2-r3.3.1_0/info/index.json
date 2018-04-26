@@ -1,0 +1,19 @@
+{
+  "arch": "x86_64",
+  "build": "r3.3.1_0",
+  "build_number": 0,
+  "depends": [
+    "r-base 3.3.1*",
+    "r-htmlwidgets >=0.5",
+    "r-rstudioapi >=0.3.1",
+    "r-scales >=0.3.0",
+    "r-stringr >=1.0.0",
+    "r-visnetwork >=0.1.2"
+  ],
+  "license": "MIT + file LICENSE",
+  "license_family": "MIT",
+  "name": "r-diagrammer",
+  "platform": "osx",
+  "subdir": "osx-64",
+  "version": "0.8.2"
+}

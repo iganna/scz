@@ -1,3 +1,11 @@
+#' ---
+#' title: "Analysis of gene expression variance in schizophrenia using structural equation modeling"
+#' purpose: "Functions to work with models"
+#' author: "Anna A. Igolkina (igolkinaanna11@gmail.com)"
+#' date: "2017-2018"
+#' ---
+
+
 # Library to work with SEM
 library(lavaan)
 
@@ -22,22 +30,6 @@ modDouble2Single <-function(mod)
 #========================================================================
 #
 #========================================================================
-# split_mod_into_fit <-function(fit_groups)
-# {
-#   params_sem = parameterEstimates(fit_groups);
-#   mod1 = c()
-#   mod2 = c()
-#   for (i in 1:dim(params_sem)[1])
-#   {
-#     if
-#   }
-# 
-#   return(list(mod1, mod2))
-# }
-
-#========================================================================
-#
-#========================================================================
 modDouble2Single_fit <-function(mod, fit_groups, common_factors)
 {
   params_sem0 = parameterEstimates(fit_groups);
@@ -48,23 +40,18 @@ modDouble2Single_fit <-function(mod, fit_groups, common_factors)
     params_sem = params_sem[params_sem[,3] != common_factors[i],]
   }
   
-  regr_est1 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='1')&(params_sem[,'label']!=''), c('est')];
-  regr_lab1 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='1')&(params_sem[,'label']!=''), c('label')];
-  regr_est2 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='2')&(params_sem[,'label']!=''), c('est')];
-  regr_lab2 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='2')&(params_sem[,'label']!=''), c('label')];
+  regressions1 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='1'), c('est')];
+  lab1 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='1'), c('label')];
+  regressions2 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='2'), c('est')];
+  lab2 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='2'), c('label')];
   
   params_sem = params_sem0;
-  cov_est1 = params_sem[(params_sem[,'op']=='~~') &(params_sem[,'group']=='1')&(params_sem[,'label']!=''), c('est')];
-  cov_lab1 = params_sem[(params_sem[,'op']=='~~') &(params_sem[,'group']=='1')&(params_sem[,'label']!=''), c('label')];
-  cov_est2 = params_sem[(params_sem[,'op']=='~~') &(params_sem[,'group']=='2')&(params_sem[,'label']!=''), c('est')];
-  cov_lab2 = params_sem[(params_sem[,'op']=='~~') &(params_sem[,'group']=='2')&(params_sem[,'label']!=''), c('label')];
+  cov_est1 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='1'), c('est')];
+  cov_lab1 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='1'), c('label')];
+  cov_est2 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='2'), c('est')];
+  cov_lab2 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='2'), c('label')];
   
-  cov_est1 = c(cov_est1, regr_est1)
-  cov_est2 = c(cov_est2, regr_est2)
-  cov_lab1 = c(cov_lab1, regr_lab1)
-  cov_lab2 = c(cov_lab2, regr_lab2)
-  
-
+  idx_cut = c();
   mod1 = c();
   mod2 = c();
   for(i in 1:length(mod))
@@ -72,14 +59,16 @@ modDouble2Single_fit <-function(mod, fit_groups, common_factors)
     if (grepl(pattern = ':', x = mod[i]))  # do not use variables
     {
       next;
+    }else if (length(grep(' ~ ', x =  mod[i])) == 0)  # if the line is not about
+    {
+      mod1 = c(mod1,  mod[i]);
+      mod2 = c(mod2,  mod[i]);
     }
-    break_flag = FALSE
     for (j in 1:length(cov_lab1))
     {
       if (length(grep(cov_lab1[j], x =  mod[i])) != 0)
       {
         mod1 = c(mod1,gsub(pattern = 'c\\(\\w+, \\w+\\)', replacement = cov_est1[j],x = mod[i]))
-        break_flag = TRUE
         break;
       }
     }
@@ -88,18 +77,8 @@ modDouble2Single_fit <-function(mod, fit_groups, common_factors)
       if (length(grep(cov_lab2[j], x =  mod[i])) != 0)
       {
         mod2 = c(mod2,gsub(pattern = 'c\\(\\w+, \\w+\\)', replacement = cov_est2[j],x = mod[i]))
-        break_flag = TRUE
         break;
       }
-    }
-    if (break_flag)
-      next;
-    
-    if (length(grep(' ~ ', x =  mod[i])) == 0)  # if the line is about covariance
-    {
-      mod1 = c(mod1,  mod[i]);
-      mod2 = c(mod2,  mod[i]);
-      next;
     }
     
   }
@@ -257,7 +236,7 @@ estimate_path_mod <- function(models, dExpr, common_factors)
   pvals_c = c()
   for (i in 1:length(models))
   {
-    print(i)
+    # print(i)
     mod = models[[i]];
     fit_tmp <- tryCatch(sem(mod, data = dExpr, meanstructure = TRUE , fixed.x = FALSE, group = 'disease'),
                         warning = function(w) {NaN;},
@@ -320,7 +299,6 @@ construct_pathway_fit <- function(pathway, fit_groups, common_factors)
   regressions_gr1 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='1'), c( 'est', 'se','pvalue')];
   regressions_gr2 = params_sem[(params_sem[,'op']=='~') &(params_sem[,'group']=='2'), c( 'est', 'se','pvalue')];
   regressions_diff = params_sem[(params_sem[,'op']==':=') &(params_sem[,'group']=='0'), c('est', 'se','pvalue')];
-
   
   signif_diff = regressions_diff[,'pvalue']
   
@@ -352,7 +330,6 @@ construct_pathway_fit <- function(pathway, fit_groups, common_factors)
   
   # Names of noves across variants
   genes = unique(c(edge_from_to[,1], edge_from_to[,2]));
-  print(genes)
   nodes_name = genes_mx$name;
   for (i in 1:genes_mx$n)
   {
@@ -392,7 +369,6 @@ get_indexes <- function(pathway_fit, mod_group, fit_groups, dCon, dSch, common_f
   
   mod12 = modDouble2Single_fit(mod_group, fit_groups, common_factors)
   fit_c = sem(mod12[[1]], data = dCon, meanstructure = TRUE , fixed.x = FALSE)
-  print(parameterestimates(fit_c))
   fit_s = sem(mod12[[2]], data = dSch, meanstructure = TRUE , fixed.x = FALSE)
   
   c <- paste(c('CFI:',round(fitMeasures(fit_c,'cfi'),digits=3), round(fitMeasures(fit_s,'cfi'),digits=3)), collapse='\n')
@@ -406,3 +382,30 @@ get_indexes <- function(pathway_fit, mod_group, fit_groups, dCon, dSch, common_f
   return (pathway_fit)
 }
 
+get_best_mod <-function(est, path_mod)
+{
+  
+  
+  # Failed models
+  idx_failed = est$indexes[,'df'] != ''
+  
+  # Models with many non-significant interactions
+  min(est$pvals_c[idx_failed])
+  idx_signif = as.numeric(est$pvals_c) <= 6
+  
+  
+  idx = 1:length(path_mod$group)
+  idx = idx[idx_failed & idx_signif]
+  # plot(est$indexes[idx,'cfi'],est$indexes[idx,'rmsea'])
+  # idx = idx[est$indexes[idx,'cfi'] == max(est$indexes[idx,'cfi'])]
+  
+  idx = idx[est$indexes[idx,'cfi'] > 0.74]
+  idx = idx[est$indexes[idx,'rmsea'] < 0.2]
+  idx = idx[est$indexes[idx,'tli'] == min(est$indexes[idx,'tli'])]
+  # idx = idx[est$indexes[idx,'aic'] == min(est$indexes[idx,'aic'])]
+  
+  mod_group = path_mod$group[[idx[1]]]
+  
+  return (mod_group)
+  
+}

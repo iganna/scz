@@ -1,0 +1,40 @@
+# This file created by conda-build 1.21.0
+# meta.yaml template originally from:
+# /Volumes/VMware Shared Folders/conda/conda-recipes/r-packages/r-diagrammer, last modified Tue Jun 14 12:25:55 2016
+# ------------------------------------------------
+
+package:
+    name: r-diagrammer
+    version: 0.8.2
+source:
+    fn: DiagrammeR_0.8.2.tar.gz
+    url:
+        - http://cran.r-project.org/src/contrib/DiagrammeR_0.8.2.tar.gz
+        - http://cran.r-project.org/src/contrib/Archive/DiagrammeR/DiagrammeR_0.8.2.tar.gz
+build:
+    rpaths:
+        - lib/R/lib/
+        - lib/
+requirements:
+    build:
+        - r-base
+        - r-htmlwidgets >=0.5
+        - r-rstudioapi >=0.3.1
+        - r-scales >=0.3.0
+        - r-stringr >=1.0.0
+        - r-visnetwork >=0.1.2
+    run:
+        - r-base
+        - r-htmlwidgets >=0.5
+        - r-rstudioapi >=0.3.1
+        - r-scales >=0.3.0
+        - r-stringr >=1.0.0
+        - r-visnetwork >=0.1.2
+test:
+    commands:
+        - $R -e "library('DiagrammeR')"
+about:
+    home: https://github.com/rich-iannone/DiagrammeR
+    license: MIT + file LICENSE
+    license_family: MIT
+    summary: Create graph diagrams and flowcharts using R.

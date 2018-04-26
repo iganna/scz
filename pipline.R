@@ -1,3 +1,10 @@
+#' ---
+#' title: "Analysis of gene expression variance in schizophrenia using structural equation modeling"
+#' purpose: "Pipeline: get a gene pathway model with no ambiguities in nodes"
+#' author: "Anna A. Igolkina (igolkinaanna11@gmail.com)"
+#' date: "2017-2018"
+#' ---
+
 # =================== SOURCE ========================
 
 # Own source code
@@ -63,32 +70,8 @@ est = estimate_path_mod(path_mod$group, dExpr, common_factors)
 # Select the best model
 #====================================================
 
+mod_group <- get_best_mod(est, path_mod)
 
-# Failed models
-idx_failed = est$indexes[,'df'] != ''
-
-# Models with many non-significant interactions
-min(est$pvals_c[idx_failed])
-idx_signif = as.numeric(est$pvals_c) <= 4
-
-
-
-idx = 1:length(path_mod$group)
-idx = idx[idx_failed & idx_signif]
-plot(est$indexes[idx,'cfi'],est$indexes[idx,'rmsea'])
-# idx = idx[est$indexes[idx,'cfi'] == max(est$indexes[idx,'cfi'])]
-
-idx = idx[est$indexes[idx,'cfi'] > 0.75]
-idx = idx[est$indexes[idx,'rmsea'] < 0.2]
-idx = idx[est$indexes[idx,'tli'] == min(est$indexes[idx,'tli'])]
-
-mod_group = path_mod$group[[idx[1]]]
-
-est$indexes[idx,'cfi']
-
-0.750623685378339
-
-0.76118576693227
 
 #====================================================
 #             WHEN MODEL IS PREPARED

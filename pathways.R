@@ -1,3 +1,12 @@
+#' ---
+#' title: "Analysis of gene expression variance in schizophrenia using structural equation modeling"
+#' purpose: "Topologies of pathways wto  analyse"
+#' author: "Anna A. Igolkina (igolkinaanna11@gmail.com)"
+#' date: "2017-2018"
+#' ---
+
+
+
 get_pathway <- function(pathway_name)
 {
   
@@ -117,7 +126,7 @@ get_pathway <- function(pathway_name)
   
   genes_info_akt = c(
     'IRS1','IRS1', 'rectangle',
-    'Pik3', 'PIK3CA\nPIK3CB\nPIK3CD\nPIK3R1\nPIK3R2\nPIK3R3', 'rectangle',
+    'Pik3', 'PIK3CA\nPIK3CB\nPIK3CG\nPIK3R1\nPIK3R2\nPIK3R3', 'rectangle',
     'PTK2','PTK2', 'rectangle',
     'PDPK1','PDPK1', 'rectangle',
     'PTEN','PTEN', 'rectangle',

@@ -1,0 +1,6 @@
+{
+  "home": "https://github.com/rich-iannone/DiagrammeR",
+  "license": "MIT + file LICENSE",
+  "license_family": "MIT",
+  "summary": "Create graph diagrams and flowcharts using R."
+}

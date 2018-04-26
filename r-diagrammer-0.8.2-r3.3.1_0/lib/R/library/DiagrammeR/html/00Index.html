@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: Create Graph Diagrams and Flowcharts Using R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> Create Graph Diagrams and Flowcharts Using R
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;DiagrammeR&rsquo; version 0.8.2</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="add_edge.html">add_edge</a></td>
+<td>Add an edge between nodes in a graph object</td></tr>
+<tr><td style="width: 25%;"><a href="add_edges_from_csv.html">add_edges_from_csv</a></td>
+<td>Add edges and attributes from a CSV file</td></tr>
+<tr><td style="width: 25%;"><a href="add_edges_from_df.html">add_edges_from_df</a></td>
+<td>Add edges and attributes from a data frame</td></tr>
+<tr><td style="width: 25%;"><a href="add_edge_df.html">add_edge_df</a></td>
+<td>Add edges from an edge data frame to an existing graph object</td></tr>
+<tr><td style="width: 25%;"><a href="add_node.html">add_node</a></td>
+<td>Add a node to an existing graph object</td></tr>
+<tr><td style="width: 25%;"><a href="add_nodes_from_csv.html">add_nodes_from_csv</a></td>
+<td>Add nodes and attributes from a CSV file</td></tr>
+<tr><td style="width: 25%;"><a href="add_nodes_from_df.html">add_nodes_from_df</a></td>
+<td>Add nodes and attributes from a data frame</td></tr>
+<tr><td style="width: 25%;"><a href="add_node_df.html">add_node_df</a></td>
+<td>Add nodes from a node data frame to an existing graph object</td></tr>
+<tr><td style="width: 25%;"><a href="add_n_nodes.html">add_n_nodes</a></td>
+<td>Add a multiple of new nodes to the graph</td></tr>
+<tr><td style="width: 25%;"><a href="add_n_nodes_from_selection.html">add_n_nodes_from_selection</a></td>
+<td>Add a multiple of new nodes with edges from one or more selected nodes</td></tr>
+<tr><td style="width: 25%;"><a href="add_n_nodes_to_selection.html">add_n_nodes_to_selection</a></td>
+<td>Add a multiple of new nodes with edges to one or more selected nodes</td></tr>
+<tr><td style="width: 25%;"><a href="add_to_series.html">add_to_series</a></td>
+<td>Add graph object to a graph series object</td></tr>
+<tr><td style="width: 25%;"><a href="clear_selection.html">clear_selection</a></td>
+<td>Clear a selection of nodes or edges in a graph</td></tr>
+<tr><td style="width: 25%;"><a href="combine_edges.html">combine_edges</a></td>
+<td>Combine multiple edge data frames into a single edge data frame</td></tr>
+<tr><td style="width: 25%;"><a href="combine_graphs.html">combine_graphs</a></td>
+<td>Combine two graphs into a single graph</td></tr>
+<tr><td style="width: 25%;"><a href="combine_nodes.html">combine_nodes</a></td>
+<td>Combine multiple node data frames into a single node data frame</td></tr>
+<tr><td style="width: 25%;"><a href="country_graph.html">country_graph</a></td>
+<td>Create a graph object that contains the boundaries of a country</td></tr>
+<tr><td style="width: 25%;"><a href="create_edges.html">create_edges</a></td>
+<td>Create a data frame with edges and their attributes</td></tr>
+<tr><td style="width: 25%;"><a href="create_graph.html">create_graph</a></td>
+<td>Create a graph object using data frames representative of nodes and edges</td></tr>
+<tr><td style="width: 25%;"><a href="create_nodes.html">create_nodes</a></td>
+<td>Create a data frame with nodes and their attributes</td></tr>
+<tr><td style="width: 25%;"><a href="create_random_graph.html">create_random_graph</a></td>
+<td>Create a randomized graph</td></tr>
+<tr><td style="width: 25%;"><a href="create_series.html">create_series</a></td>
+<td>Create a graph series object</td></tr>
+<tr><td style="width: 25%;"><a href="create_subgraph_from_selection.html">create_subgraph_from_selection</a></td>
+<td>Create a subgraph based on a selection of nodes or edges</td></tr>
+<tr><td style="width: 25%;"><a href="delete_edge.html">delete_edge</a></td>
+<td>Delete an edge from an existing graph object</td></tr>
+<tr><td style="width: 25%;"><a href="delete_edges_in_selection.html">delete_edges_in_selection</a></td>
+<td>Delete all selected edges</td></tr>
+<tr><td style="width: 25%;"><a href="delete_node.html">delete_node</a></td>
+<td>Delete a node from an existing graph object</td></tr>
+<tr><td style="width: 25%;"><a href="delete_nodes_in_selection.html">delete_nodes_in_selection</a></td>
+<td>Delete all selected nodes</td></tr>
+<tr><td style="width: 25%;"><a href="deposit_edge_attr.html">deposit_edge_attr</a></td>
+<td>Deposit edge attributes in the graph</td></tr>
+<tr><td style="width: 25%;"><a href="deposit_edge_attr_from_selection.html">deposit_edge_attr_from_selection</a></td>
+<td>Deposit edge attributes (based on a selection of edges) in the graph</td></tr>
+<tr><td style="width: 25%;"><a href="deposit_edge_count_in_selection.html">deposit_edge_count_in_selection</a></td>
+<td>Deposit a count of edges (available in a selection) in the graph</td></tr>
+<tr><td style="width: 25%;"><a href="deposit_node_attr.html">deposit_node_attr</a></td>
+<td>Deposit node attributes in the graph</td></tr>
+<tr><td style="width: 25%;"><a href="deposit_node_attr_from_selection.html">deposit_node_attr_from_selection</a></td>
+<td>Deposit node attributes (based on a selection of nodes) in the graph</td></tr>
+<tr><td style="width: 25%;"><a href="deposit_node_count_in_selection.html">deposit_node_count_in_selection</a></td>
+<td>Deposit a count of nodes (available in a selection) in the graph</td></tr>
+<tr><td style="width: 25%;"><a href="DiagrammeR.html">DiagrammeR</a></td>
+<td>R + mermaid.js</td></tr>
+<tr><td style="width: 25%;"><a href="DiagrammeROutput.html">DiagrammeROutput</a></td>
+<td>Widget output function for use in Shiny</td></tr>
+<tr><td style="width: 25%;"><a href="edge_count.html">edge_count</a></td>
+<td>Get count of all edges or edges with distinct relationship types</td></tr>
+<tr><td style="width: 25%;"><a href="edge_info.html">edge_info</a></td>
+<td>Get detailed information on edges</td></tr>
+<tr><td style="width: 25%;"><a href="edge_present.html">edge_present</a></td>
+<td>Determine whether a specified edge is present in an existing graph object</td></tr>
+<tr><td style="width: 25%;"><a href="edge_rel.html">edge_rel</a></td>
+<td>Create, read, update, delete, or report status of an edge relationship</td></tr>
+<tr><td style="width: 25%;"><a href="get_edges.html">get_edges</a></td>
+<td>Get node IDs associated with edges</td></tr>
+<tr><td style="width: 25%;"><a href="get_edge_df.html">get_edge_df</a></td>
+<td>Get an edge data frame from a graph</td></tr>
+<tr><td style="width: 25%;"><a href="get_global_graph_attr.html">get_global_graph_attr</a></td>
+<td>Get global graph attributes</td></tr>
+<tr><td style="width: 25%;"><a href="get_graph_from_series.html">get_graph_from_series</a></td>
+<td>Get a graph available in a series</td></tr>
+<tr><td style="width: 25%;"><a href="get_nodes.html">get_nodes</a></td>
+<td>Get a vector of node ID values</td></tr>
+<tr><td style="width: 25%;"><a href="get_node_df.html">get_node_df</a></td>
+<td>Get a node data frame from a graph</td></tr>
+<tr><td style="width: 25%;"><a href="get_paths.html">get_paths</a></td>
+<td>Get paths from a specified node in a directed graph</td></tr>
+<tr><td style="width: 25%;"><a href="get_predecessors.html">get_predecessors</a></td>
+<td>Get node IDs for predecessor nodes to the specified node</td></tr>
+<tr><td style="width: 25%;"><a href="get_selection.html">get_selection</a></td>
+<td>Get the current selection available in a graph object</td></tr>
+<tr><td style="width: 25%;"><a href="get_successors.html">get_successors</a></td>
+<td>Get node IDs for successor nodes to the specified node</td></tr>
+<tr><td style="width: 25%;"><a href="graph_count.html">graph_count</a></td>
+<td>Count graphs in a graph series object</td></tr>
+<tr><td style="width: 25%;"><a href="grViz.html">grViz</a></td>
+<td>R + viz.js</td></tr>
+<tr><td style="width: 25%;"><a href="grVizOutput.html">grVizOutput</a></td>
+<td>Widget output function for use in Shiny</td></tr>
+<tr><td style="width: 25%;"><a href="image_icon.html">image_icon</a></td>
+<td>Icons and their download locations</td></tr>
+<tr><td style="width: 25%;"><a href="import_graph.html">import_graph</a></td>
+<td>Import a graph from various graph formats</td></tr>
+<tr><td style="width: 25%;"><a href="invert_selection.html">invert_selection</a></td>
+<td>Invert selection of nodes or edges in a graph</td></tr>
+<tr><td style="width: 25%;"><a href="is_graph_directed.html">is_graph_directed</a></td>
+<td>Is the graph a directed graph?</td></tr>
+<tr><td style="width: 25%;"><a href="is_graph_empty.html">is_graph_empty</a></td>
+<td>Is the graph empty?</td></tr>
+<tr><td style="width: 25%;"><a href="mermaid.html">mermaid</a></td>
+<td>R + mermaid.js</td></tr>
+<tr><td style="width: 25%;"><a href="node_count.html">node_count</a></td>
+<td>Get count of all nodes or certain types of nodes</td></tr>
+<tr><td style="width: 25%;"><a href="node_info.html">node_info</a></td>
+<td>Get detailed information on nodes</td></tr>
+<tr><td style="width: 25%;"><a href="node_present.html">node_present</a></td>
+<td>Determine whether a specified node is present in an existing graph object</td></tr>
+<tr><td style="width: 25%;"><a href="node_type.html">node_type</a></td>
+<td>Create, read, update, delete, or report status of a node type definition</td></tr>
+<tr><td style="width: 25%;"><a href="remove_from_series.html">remove_from_series</a></td>
+<td>Remove graph object from a graph series object</td></tr>
+<tr><td style="width: 25%;"><a href="renderDiagrammeR.html">renderDiagrammeR</a></td>
+<td>Widget render function for use in Shiny</td></tr>
+<tr><td style="width: 25%;"><a href="renderGrViz.html">renderGrViz</a></td>
+<td>Widget render function for use in Shiny</td></tr>
+<tr><td style="width: 25%;"><a href="render_graph.html">render_graph</a></td>
+<td>Render the graph or output in various formats</td></tr>
+<tr><td style="width: 25%;"><a href="render_graph_from_series.html">render_graph_from_series</a></td>
+<td>Render a graph available in a series</td></tr>
+<tr><td style="width: 25%;"><a href="replace_in_spec.html">replace_in_spec</a></td>
+<td>Razor-like template for diagram specification</td></tr>
+<tr><td style="width: 25%;"><a href="rescale_edge_attr_in_selection.html">rescale_edge_attr_in_selection</a></td>
+<td>Rescale numeric edge attribute values for edges in a selection</td></tr>
+<tr><td style="width: 25%;"><a href="rescale_node_attr_in_selection.html">rescale_node_attr_in_selection</a></td>
+<td>Rescale numeric node attribute values for nodes in a selection</td></tr>
+<tr><td style="width: 25%;"><a href="select_edges.html">select_edges</a></td>
+<td>Select edges in a graph</td></tr>
+<tr><td style="width: 25%;"><a href="select_edges_by_node_id.html">select_edges_by_node_id</a></td>
+<td>Select edges in a graph using node ID values</td></tr>
+<tr><td style="width: 25%;"><a href="select_last_edge.html">select_last_edge</a></td>
+<td>Select last edge in a series of edges defined in a graph</td></tr>
+<tr><td style="width: 25%;"><a href="select_last_node.html">select_last_node</a></td>
+<td>Select last node in a series of node IDs in a graph</td></tr>
+<tr><td style="width: 25%;"><a href="select_nodes.html">select_nodes</a></td>
+<td>Select nodes in a graph</td></tr>
+<tr><td style="width: 25%;"><a href="select_nodes_by_degree.html">select_nodes_by_degree</a></td>
+<td>Get node degree values from nodes available in a selection</td></tr>
+<tr><td style="width: 25%;"><a href="select_nodes_by_id.html">select_nodes_by_id</a></td>
+<td>Select nodes in a graph by ID values</td></tr>
+<tr><td style="width: 25%;"><a href="select_nodes_in_neighborhood.html">select_nodes_in_neighborhood</a></td>
+<td>Select nodes based on a walk distance from a specified node</td></tr>
+<tr><td style="width: 25%;"><a href="series_info.html">series_info</a></td>
+<td>Get detailed information on a graph series</td></tr>
+<tr><td style="width: 25%;"><a href="set_edge_attr.html">set_edge_attr</a></td>
+<td>Set edge attributes</td></tr>
+<tr><td style="width: 25%;"><a href="set_edge_attr_with_selection.html">set_edge_attr_with_selection</a></td>
+<td>Set edge attributes based on a selection of edges</td></tr>
+<tr><td style="width: 25%;"><a href="set_global_graph_attr.html">set_global_graph_attr</a></td>
+<td>Set global graph attributes</td></tr>
+<tr><td style="width: 25%;"><a href="set_graph_name.html">set_graph_name</a></td>
+<td>Set graph name</td></tr>
+<tr><td style="width: 25%;"><a href="set_graph_time.html">set_graph_time</a></td>
+<td>Set graph date-time and timezone</td></tr>
+<tr><td style="width: 25%;"><a href="set_node_attr.html">set_node_attr</a></td>
+<td>Set node attributes</td></tr>
+<tr><td style="width: 25%;"><a href="set_node_attr_with_selection.html">set_node_attr_with_selection</a></td>
+<td>Set node attributes based on a selection of nodes</td></tr>
+<tr><td style="width: 25%;"><a href="subset_series.html">subset_series</a></td>
+<td>Subset a graph series object</td></tr>
+<tr><td style="width: 25%;"><a href="trav_both.html">trav_both</a></td>
+<td>Traverse from one or more selected nodes to predecessors and successors, irrespective of edges, creating a new node selection</td></tr>
+<tr><td style="width: 25%;"><a href="trav_in.html">trav_in</a></td>
+<td>Traverse inward to a selected node, skipping over edges, and creating a new node selection</td></tr>
+<tr><td style="width: 25%;"><a href="trav_in_edge.html">trav_in_edge</a></td>
+<td>Traverse from one or more selected nodes onto adjacent, inward edges</td></tr>
+<tr><td style="width: 25%;"><a href="trav_in_node.html">trav_in_node</a></td>
+<td>Traverse from one or more selected edges toward adjacent inward nodes</td></tr>
+<tr><td style="width: 25%;"><a href="trav_out.html">trav_out</a></td>
+<td>Traverse outward from a selected node, skipping over edges, and creating a new node selection</td></tr>
+<tr><td style="width: 25%;"><a href="trav_out_edge.html">trav_out_edge</a></td>
+<td>Traverse from one or more selected nodes onto adjacent, outward edges</td></tr>
+<tr><td style="width: 25%;"><a href="trav_out_node.html">trav_out_node</a></td>
+<td>Traverse from one or more selected edges toward adjacent outward nodes</td></tr>
+<tr><td style="width: 25%;"><a href="trigger_script.html">trigger_script</a></td>
+<td>Trigger a script embedded in a graph series object</td></tr>
+<tr><td style="width: 25%;"><a href="visnetwork.html">visnetwork</a></td>
+<td>Render graph with visNetwork</td></tr>
+<tr><td style="width: 25%;"><a href="vivagraph.html">vivagraph</a></td>
+<td>Render graph with VivaGraphJS</td></tr>
+<tr><td style="width: 25%;"><a href="withdraw_values.html">withdraw_values</a></td>
+<td>Withdraw a stored vector from a graph object</td></tr>
+<tr><td style="width: 25%;"><a href="x11_hex.html">x11_hex</a></td>
+<td>X11 colors and hexadecimal color values</td></tr>
+</table>
+</body></html>

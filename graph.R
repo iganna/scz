@@ -1,6 +1,14 @@
+#' ---
+#' title: "Analysis of gene expression variance in schizophrenia using structural equation modeling"
+#' purpose: "Construct and render graphs"
+#' author: "Anna A. Igolkina (igolkinaanna11@gmail.com)"
+#' date: "2017-2018"
+#' ---
+
+
 # Library to work with diagrams
 library('devtools')
-install("/Users/anna/OneDrive/polytech/schiza/scripts/r-diagrammer-0.8.2-r3.3.1_0/lib/R/library/Diagrammer")
+install("r-diagrammer-0.8.2-r3.3.1_0/lib/R/library/Diagrammer")
 library('DiagrammeR')
 
 get_graph_properties <- function(pathway, flag)
