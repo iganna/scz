@@ -5,7 +5,7 @@
 This repository contains the pipeline to select and estimate a SEM model based on the pathway with ambiguous nodes. Topologies of pathways are incorporated in `pathways.R`.  
 
 To run the pipeline, one can use two options:
-* Jupyter notebook `pipeline.ipynb`
+* Notebook `pipeline.ipynb`
 * R script `pipeline.R`
 
 ## Data
