@@ -10,7 +10,7 @@ To run the pipeline, one can use two options:
 
 ## Data
 
-The table with gene expression data is in `dExpr.R`
+The table with gene expression data is in `dExpr.txt`
 
 ## Requirements
 
